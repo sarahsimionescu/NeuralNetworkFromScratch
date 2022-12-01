@@ -1,5 +1,5 @@
 # NeuralNetworkFromScratch
-I decided to create a neural network from scratch in C++ as part of my final project for my Scientific Computing course (DATASCI 2G03).
+I decided to create a simple back propagation neural network from scratch in C++ as part of my final project for my Scientific Computing course (DATASCI 2G03).
 
 ## Instructions for Use
 **Read the project proposal to learn about the model and how it works!**
