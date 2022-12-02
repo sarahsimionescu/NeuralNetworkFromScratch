@@ -63,6 +63,8 @@ void Network::train(const Dataset& training_data, const Dataset& validation_data
             }
             validation_data_accuracy = validation_data_accuracy / (long double)batch_size;
             cout << "Accuracy: " << validation_data_accuracy << "\n";
+            training_data_results[(e * training_data.size + b) / batch_size] = (float)training_data_accuracy;
+            validation_data_results[(e * training_data.size + b) / batch_size] = (float)validation_data_accuracy;
             cout << "Backwards propigation...\n";
             vector<vector<long double> > delta_2 = sub(a2_outputs, outputs);
             vector<vector<long double> > delta_weights2 = scale(dot_transpose1(delta_2, a1_outputs), 1 / (long double)batch_size);
@@ -77,8 +79,7 @@ void Network::train(const Dataset& training_data, const Dataset& validation_data
             h1.weights = sub(h1.weights, scale(delta_weights1, learning_rate));
             h1.biases = sub(h1.biases, scale(delta_biases1, learning_rate));
         }
-        training_data_results[e] = (float)training_data_accuracy;
-        validation_data_results[e] = (float)validation_data_accuracy;
+
     }
 }
 
